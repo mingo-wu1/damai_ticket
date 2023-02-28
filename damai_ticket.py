@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 # 目前仅支持PC网页端抢票。手机网页不支持，登录问题
-# 手动下载chromeexe，放置在/esr/bin下面
+# 手动下载chromedriverexe，放置在/esr/bin下面
 # 如果高版本chrome，那么 find_element_by_class_name -> find_element(by=By.CLASS_NAME,value=...)
 
 class Concert(object):
