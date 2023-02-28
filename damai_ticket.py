@@ -9,6 +9,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
+# 目前仅支持PC网页端抢票。手机网页不支持，登录问题
+# 如果高版本chrome，那么 find_element_by_class_name -> find_element(by=By.CLASS_NAME,value=...)
+
 class Concert(object):
     def __init__(self, date, session, price, real_name, nick_name, ticket_num, damai_url, target_url,driver_path):
         self.date = date  # 日期序号
@@ -69,8 +72,8 @@ class Concert(object):
 
     def login(self):
         print(u'###开始登录###')
-        self.driver.get(self.target_url)
-        WebDriverWait(self.driver, 10, 0.1).until(EC.title_contains('大麦网'))
+        self.driver.get(self.target_url) # 这里是明星购票的那个url 不是登录url
+        WebDriverWait(self.driver, 10, 0.1).until(EC.title_contains('大麦网')) # 刷F12看title再添加字符串
         self.set_cookie()
 
     def enter_concert(self):
